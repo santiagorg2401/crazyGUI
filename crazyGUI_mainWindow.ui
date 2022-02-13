@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Santiago Restrepo</author>
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>278</width>
+    <height>347</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>CrazyGUI</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <item>
+     <widget class="QGroupBox" name="groupBox_1">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="title">
+       <string>1. Adjust configuration files.</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QSplitter" name="splitter">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <widget class="QPushButton" name="pushButton1_1">
+          <property name="text">
+           <string>Edit crazyflie data.</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton1_0">
+          <property name="text">
+           <string>Edit crazyflies list.</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton1_2">
+          <property name="text">
+           <string>Edit main launch settings.</string>
+          </property>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="title">
+       <string>2. Tools.</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QSplitter" name="splitter_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <widget class="QPushButton" name="pushButton2_0">
+          <property name="text">
+           <string>Open cfclient.</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton2_1">
+          <property name="text">
+           <string>Open chooser.py</string>
+          </property>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QSplitter" name="splitter_3">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <widget class="QPushButton" name="pushButton0_1">
+       <property name="text">
+        <string>Run ROS master.</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton0_0">
+       <property name="text">
+        <string>Clear terminal.</string>
+       </property>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="styleSheet">
+       <string notr="true">image: url(:/icons/crazyflie.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>278</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuedir">
+    <property name="title">
+     <string>Tabs</string>
+    </property>
+    <addaction name="action_1"/>
+    <addaction name="action_2"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Settings</string>
+    </property>
+    <widget class="QMenu" name="menuSelect_language">
+     <property name="title">
+      <string>Select language</string>
+     </property>
+     <addaction name="actionEnglish"/>
+     <addaction name="actionSpanish"/>
+    </widget>
+    <addaction name="menuSelect_language"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionIssues"/>
+    <addaction name="actionAbout_CrazyGUI"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+   </widget>
+   <addaction name="menuedir"/>
+   <addaction name="menuView"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_1">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Adjust configuration files.</string>
+   </property>
+   <property name="shortcut">
+    <string/>
+   </property>
+  </action>
+  <action name="actionEnglish">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>English</string>
+   </property>
+  </action>
+  <action name="actionSpanish">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Spanish</string>
+   </property>
+  </action>
+  <action name="action_2">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Tools</string>
+   </property>
+  </action>
+  <action name="actionIssues">
+   <property name="text">
+    <string>Issues</string>
+   </property>
+  </action>
+  <action name="actionAbout_CrazyGUI">
+   <property name="text">
+    <string>About CrazyGUI</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="Images/crazyflie.qrc"/>
+ </resources>
+ <connections/>
+</ui>
