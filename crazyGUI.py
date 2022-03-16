@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'crazyGUI/crazyGUI_mainWindow.ui'
+# Form implementation generated from reading ui file 'crazyGUI_mainWindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.0
 #
@@ -69,8 +69,6 @@ class Ui_MainWindow(object):
         self.splitter_3 = QtWidgets.QSplitter(self.centralwidget)
         self.splitter_3.setOrientation(QtCore.Qt.Horizontal)
         self.splitter_3.setObjectName("splitter_3")
-        self.pushButton0_1 = QtWidgets.QPushButton(self.splitter_3)
-        self.pushButton0_1.setObjectName("pushButton0_1")
         self.pushButton0_0 = QtWidgets.QPushButton(self.splitter_3)
         self.pushButton0_0.setObjectName("pushButton0_0")
         self.verticalLayout_3.addWidget(self.splitter_3)
@@ -149,9 +147,8 @@ class Ui_MainWindow(object):
         self.pushButton2_1.setText(_translate("MainWindow", "Open chooser.py"))
         self.groupBox_3.setTitle(_translate("MainWindow", "3. Flight."))
         self.pushButton3_0.setText(_translate("MainWindow", "Run pre-launch sequence."))
-        self.pushButton3_1.setText(_translate("MainWindow", "Select flight script."))
+        self.pushButton3_1.setText(_translate("MainWindow", "Select waypoints CSV file."))
         self.pushButton3_2.setText(_translate("MainWindow", "Fly."))
-        self.pushButton0_1.setText(_translate("MainWindow", "Run ROS master."))
         self.pushButton0_0.setText(_translate("MainWindow", "Clear terminal."))
         self.menuedir.setTitle(_translate("MainWindow", "Tabs"))
         self.menuEdit.setTitle(_translate("MainWindow", "Settings"))

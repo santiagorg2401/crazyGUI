@@ -103,7 +103,7 @@
          </widget>
          <widget class="QPushButton" name="pushButton3_1">
           <property name="text">
-           <string>Select flight script.</string>
+           <string>Select waypoints CSV file.</string>
           </property>
          </widget>
          <widget class="QPushButton" name="pushButton3_2">
@@ -121,11 +121,6 @@
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
-      <widget class="QPushButton" name="pushButton0_1">
-       <property name="text">
-        <string>Run ROS master.</string>
-       </property>
-      </widget>
       <widget class="QPushButton" name="pushButton0_0">
        <property name="text">
         <string>Clear terminal.</string>

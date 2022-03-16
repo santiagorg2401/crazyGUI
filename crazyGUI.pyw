@@ -1,7 +1,9 @@
 # Importations.
 from crazyGUI import *
+from PyQt5.QtWidgets import *
 import subprocess
 import os
+
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     # Main Window class.
@@ -18,7 +20,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # Set signal actions.
         # Main window.
         self.pushButton0_0.clicked.connect(self.clearTerminal)
-        self.pushButton0_1.clicked.connect(self.runROSMaster)
 
         # Tab 1.
         self.action0_0.triggered.connect(self.shTab1)
@@ -37,16 +38,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton3_1.clicked.connect(self.selectFlightScript)
         self.pushButton3_2.clicked.connect(self.fly)
 
+        self.path = ""
 
     def clearTerminal(self):
         # Clear terminal.
         subprocess.run("clear", shell=True)
-    
-    def runROSMaster(self):
-        # Run ROS master node.
-        # TODO run this in a new terminal or ... in the background?.
-        subprocess.run("roslaunch crazyswarm hover_swarm.launch", shell=True)
-        print("---------------------------------------------")
 
     def shTab1(self):
         # Toggle tab 1 visualization.
@@ -59,19 +55,22 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def editCrazyfliesList(self):
         # Edit the Crazyflies list configuration file.
-        os.chdir("/home/" + os.getlogin() + "/crazyflie/crazyswarm/ros_ws/src/crazyswarm/")
+        os.chdir("/home/" + os.getlogin() +
+                 "/crazyflie/crazyswarm/ros_ws/src/crazyswarm/")
         subprocess.run("gedit launch/allCrazyflies.yaml", shell=True)
         print("---------------------------------------------")
 
     def editcrazyflieData(self):
         # Edit the Crazyflies data configuration file.
-        os.chdir("/home/" + os.getlogin() + "/crazyflie/crazyswarm/ros_ws/src/crazyswarm/")
+        os.chdir("/home/" + os.getlogin() +
+                 "/crazyflie/crazyswarm/ros_ws/src/crazyswarm/")
         subprocess.run("gedit launch/crazyflieTypes.yaml", shell=True)
         print("---------------------------------------------")
 
     def editMainLaunchSettings(self):
         # Edit the main launch settings.
-        os.chdir("/home/" + os.getlogin() + "/crazyflie/crazyswarm/ros_ws/src/crazyswarm/")
+        os.chdir("/home/" + os.getlogin() +
+                 "/crazyflie/crazyswarm/ros_ws/src/crazyswarm/")
         subprocess.run("gedit launch/hover_swarm.launch", shell=True)
         print("---------------------------------------------")
 
@@ -83,7 +82,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         else:
             self.groupBox_2.hide()
             self.groupBox_2.setEnabled(False)
-    
+
     def openCfclient(self):
         # Open the Cfclient program by Bitcraze.
         p = subprocess.Popen("cfclient", shell=True)
@@ -91,7 +90,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def openChooser(self):
         # Open chooser.py.
-        os.chdir("/home/" + os.getlogin() + "/crazyflie/crazyswarm/ros_ws/src/crazyswarm/scripts/")
+        os.chdir("/home/" + os.getlogin() +
+                 "/crazyflie/crazyswarm/ros_ws/src/crazyswarm/scripts/")
         subprocess.run("python3 chooser.py", shell=True)
         print("---------------------------------------------")
 
@@ -106,24 +106,34 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def runPreLaunchSequence(self):
         # To run this program you will need https://github.com/santiagorg2401/ras_choreographies
-        os.chdir("/home/" + os.getlogin() + "/crazyflie/crazyswarm/ros_ws/src/crazyswarm/scripts/ras_choreographies/scripts/")
+        os.chdir("/home/" + os.getlogin() +
+                 "/crazyflie/crazyswarm/ros_ws/src/crazyswarm/scripts/ras_choreographies/scripts/")
         subprocess.run("python3 preLaunchSequence.py", shell=True)
         print("---------------------------------------------")
 
     def selectFlightScript(self):
-        # TODO add a file selection window and get its path.
+        # File selection window and get its path.
+        options = QFileDialog.Options()
+        options |= QFileDialog.DontUseNativeDialog
+        self.path, _ = QFileDialog.getOpenFileName(
+            self, "QFileDialog.getOpenFileName()", "", "All Files (*);;Python Files (*.py)", options=options)
+        if self.path:
+            print(self.path)
         pass
-    
+
     def fly(self):
         # Run the selected script in selectFlightScript.
-        os.chdir("/home/" + os.getlogin() + "/crazyflie/crazyswarm/ros_ws/src/crazyswarm/scripts/") # TODO Adjust to fly the selected script instead.
-
         if self.action2_1.isChecked():
-            subprocess.run("python3 niceHover.py --sim --vis vispy", shell=True)
+            os.chdir("/home/" + os.getlogin() +
+                     "/crazyflie/crazyswarm/ros_ws/src/crazyswarm/scripts/ras_choreographies/scripts")
+
+            subprocess.run(
+                "python3 autoTest.py " + self.path + " --sim --vis vispy", shell=True)
         else:
-            subprocess.run("python3 niceHover.py ", shell=True)
-        
+            subprocess.run(
+                "roslaunch crazyswarm auto_launch.launch file_path:=" + self.path, shell=True)
         print("---------------------------------------------")
+
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
