@@ -106,9 +106,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def runPreLaunchSequence(self):
         # To run this program you will need https://github.com/santiagorg2401/ras_choreographies
-        os.chdir("/home/" + os.getlogin() +
-                 "/crazyflie/crazyswarm/ros_ws/src/crazyswarm/scripts/ras_choreographies/scripts/")
-        subprocess.run("python3 preLaunchSequence.py", shell=True)
+        subprocess.run(
+                        "roslaunch crazyswarm auto_launch.launch fly:=0" + self.path, shell=True)
         print("---------------------------------------------")
 
     def selectFlightScript(self):
