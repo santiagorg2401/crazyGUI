@@ -130,7 +130,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 "python3 autoTest.py " + self.path + " --sim --vis vispy", shell=True)
         else:
             subprocess.run(
-                "roslaunch crazyswarm auto_launch.launch file_path:=" + self.path, shell=True)
+                "roslaunch crazyswarm auto_launch.launch fly:=1 file_path:=" + self.path, shell=True)
         print("---------------------------------------------")
 
 
