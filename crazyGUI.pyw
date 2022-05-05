@@ -127,7 +127,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                      "/crazyflie/crazyswarm/ros_ws/src/crazyswarm/scripts/ras_choreographies/scripts")
 
             subprocess.run(
-                "python3 autoTest.py " + self.path + " --sim --vis vispy", shell=True)
+                "python3 auto_lp.py " + self.path + " --sim --vis vispy", shell=True)
         else:
             subprocess.run(
                 "roslaunch crazyswarm auto_launch.launch fly:=1 file_path:=" + self.path, shell=True)
