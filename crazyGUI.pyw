@@ -1,5 +1,6 @@
 # Importations.
-from crazyGUI import *
+from crazyGUI_mainWindow import *
+from crazyGUI_crazyKhoreiaWidget import *
 from PyQt5.QtWidgets import *
 import subprocess
 import os
@@ -36,7 +37,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.action0_2.triggered.connect(self.shTab3)
         self.pushButton3_0.clicked.connect(self.runPreLaunchSequence)
         self.pushButton3_1.clicked.connect(self.selectFlightScript)
-        self.pushButton3_2.clicked.connect(self.fly)
+        self.pushButton3_2.clicked.connect(self.openCrazyKhoreiaWidget)
+        self.pushButton3_3.clicked.connect(self.fly)
 
         self.path = ""
 
@@ -107,7 +109,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def runPreLaunchSequence(self):
         # To run this program you will need https://github.com/santiagorg2401/ras_choreographies
         subprocess.run(
-                        "roslaunch crazyswarm auto_launch.launch fly:=0 " + self.path, shell=True)
+            "roslaunch crazyswarm auto_launch.launch fly:=0 " + self.path, shell=True)
         print("---------------------------------------------")
 
     def selectFlightScript(self):
@@ -119,6 +121,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.path:
             print(self.path)
         pass
+
+    def openCrazyKhoreiaWidget(self):
+        self.ckwidget = Form()
+        self.ckwidget.show()
 
     def fly(self):
         # Run the selected script in selectFlightScript.
@@ -134,8 +140,41 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         print("---------------------------------------------")
 
 
+class Form(QtWidgets.QWidget, Ui_Form):
+    def __init__(self, parent=None):
+        QtWidgets.QWidget.__init__(self, parent)
+        self.setupUi(self)
+
+        self.ImageSelector.clicked.connect(self.selectImage)
+        self.outPathBtn.clicked.connect(self.setOut)
+
+    def selectImage(self):
+        # File selection window and get its path.
+        options = QFileDialog.Options()
+        options |= QFileDialog.DontUseNativeDialog
+        self.in_path, _ = QFileDialog.getOpenFileName(
+            self, "QFileDialog.getOpenFileName()", "", "All Files (*);;Python Files (*.py)", options=options)
+        if self.in_path:
+            print(self.in_path)
+        pass
+
+    def setOut(self):
+        # File selection window and get its path.
+        options = QFileDialog.Options()
+        options |= QFileDialog.DontUseNativeDialog
+        self.out_path = QtWidgets.QFileDialog.getExistingDirectory(self, 'Select Folder')
+        if self.out_path:
+            print(self.out_path)
+        pass      
+
+
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
     window = MainWindow()
+
+    import qdarkstyle
+    app.setStyleSheet(qdarkstyle.load_stylesheet(qt_api='pyqt5'))
+
     window.show()
+
     app.exec_()

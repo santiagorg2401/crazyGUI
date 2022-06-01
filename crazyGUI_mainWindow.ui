@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>496</width>
-    <height>480</height>
+    <width>511</width>
+    <height>509</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -108,6 +108,11 @@
          </widget>
          <widget class="QPushButton" name="pushButton3_2">
           <property name="text">
+           <string>Open CrazyKhoreia.</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton3_3">
+          <property name="text">
            <string>Fly.</string>
           </property>
          </widget>
@@ -145,7 +150,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>496</width>
+     <width>511</width>
      <height>22</height>
     </rect>
    </property>
