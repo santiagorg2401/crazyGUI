@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(511, 509)
+        MainWindow.resize(467, 560)
         MainWindow.setAutoFillBackground(False)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -75,20 +75,17 @@ class Ui_MainWindow(object):
         self.pushButton0_0.setObjectName("pushButton0_0")
         self.verticalLayout_3.addWidget(self.splitter_3)
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setStyleSheet("image: url(:/icons/crazyflie.png);")
+        self.label.setStyleSheet("image: url(:/icons/icons/crazyflie.png);")
         self.label.setText("")
+        self.label.setScaledContents(False)
         self.label.setObjectName("label")
         self.verticalLayout_3.addWidget(self.label)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 511, 22))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 467, 22))
         self.menubar.setObjectName("menubar")
         self.menuedir = QtWidgets.QMenu(self.menubar)
         self.menuedir.setObjectName("menuedir")
-        self.menuEdit = QtWidgets.QMenu(self.menubar)
-        self.menuEdit.setObjectName("menuEdit")
-        self.menuSelect_language = QtWidgets.QMenu(self.menuEdit)
-        self.menuSelect_language.setObjectName("menuSelect_language")
         self.menuHelp = QtWidgets.QMenu(self.menubar)
         self.menuHelp.setObjectName("menuHelp")
         self.menuView = QtWidgets.QMenu(self.menubar)
@@ -123,15 +120,10 @@ class Ui_MainWindow(object):
         self.menuedir.addAction(self.action0_0)
         self.menuedir.addAction(self.action0_1)
         self.menuedir.addAction(self.action0_2)
-        self.menuSelect_language.addAction(self.actionEnglish)
-        self.menuSelect_language.addAction(self.actionSpanish)
-        self.menuEdit.addAction(self.menuSelect_language.menuAction())
-        self.menuEdit.addAction(self.action2_1)
         self.menuHelp.addAction(self.actionIssues)
         self.menuHelp.addAction(self.actionAbout_CrazyGUI)
         self.menubar.addAction(self.menuedir.menuAction())
         self.menubar.addAction(self.menuView.menuAction())
-        self.menubar.addAction(self.menuEdit.menuAction())
         self.menubar.addAction(self.menuHelp.menuAction())
 
         self.retranslateUi(MainWindow)
@@ -154,8 +146,6 @@ class Ui_MainWindow(object):
         self.pushButton3_3.setText(_translate("MainWindow", "Fly."))
         self.pushButton0_0.setText(_translate("MainWindow", "Clear terminal."))
         self.menuedir.setTitle(_translate("MainWindow", "Tabs"))
-        self.menuEdit.setTitle(_translate("MainWindow", "Settings"))
-        self.menuSelect_language.setTitle(_translate("MainWindow", "Select language"))
         self.menuHelp.setTitle(_translate("MainWindow", "Help"))
         self.menuView.setTitle(_translate("MainWindow", "View"))
         self.action0_0.setText(_translate("MainWindow", "Adjust configuration files."))
@@ -166,7 +156,7 @@ class Ui_MainWindow(object):
         self.actionAbout_CrazyGUI.setText(_translate("MainWindow", "About CrazyGUI"))
         self.action0_2.setText(_translate("MainWindow", "Flight"))
         self.action2_1.setText(_translate("MainWindow", "Enable simulation."))
-import crazyflie_rc
+import resource_rc
 
 
 if __name__ == "__main__":

@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>511</width>
-    <height>509</height>
+    <width>467</width>
+    <height>560</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -141,6 +141,9 @@
       <property name="text">
        <string/>
       </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
      </widget>
     </item>
    </layout>
@@ -150,7 +153,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>511</width>
+     <width>467</width>
      <height>22</height>
     </rect>
    </property>
@@ -161,20 +164,6 @@
     <addaction name="action0_0"/>
     <addaction name="action0_1"/>
     <addaction name="action0_2"/>
-   </widget>
-   <widget class="QMenu" name="menuEdit">
-    <property name="title">
-     <string>Settings</string>
-    </property>
-    <widget class="QMenu" name="menuSelect_language">
-     <property name="title">
-      <string>Select language</string>
-     </property>
-     <addaction name="actionEnglish"/>
-     <addaction name="actionSpanish"/>
-    </widget>
-    <addaction name="menuSelect_language"/>
-    <addaction name="action2_1"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -190,7 +179,6 @@
    </widget>
    <addaction name="menuedir"/>
    <addaction name="menuView"/>
-   <addaction name="menuEdit"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -257,7 +245,7 @@
   </action>
  </widget>
  <resources>
-  <include location="Images/crazyflie.qrc"/>
+  <include location="icons/resource.qrc"/>
  </resources>
  <connections/>
 </ui>
