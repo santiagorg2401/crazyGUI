@@ -46,6 +46,10 @@ class Ui_Form(object):
         self.label.setObjectName("label")
         self.gridLayout_3.addWidget(self.label, 4, 0, 1, 1)
         self.MAX_WIDTH = QtWidgets.QDoubleSpinBox(self.groupBox_3)
+        self.MAX_WIDTH.setWrapping(False)
+        self.MAX_WIDTH.setFrame(True)
+        self.MAX_WIDTH.setButtonSymbols(QtWidgets.QAbstractSpinBox.UpDownArrows)
+        self.MAX_WIDTH.setProperty("showGroupSeparator", False)
         self.MAX_WIDTH.setObjectName("MAX_WIDTH")
         self.gridLayout_3.addWidget(self.MAX_WIDTH, 0, 2, 1, 1)
         self.label_6 = QtWidgets.QLabel(self.groupBox_3)
@@ -168,7 +172,7 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "CrazyKhoreia"))
         self.groupBox_3.setTitle(_translate("Form", "General CrazyKhoreia parameters."))
         self.label_7.setText(_translate("Form", "Minimum height."))
         self.label_8.setText(_translate("Form", "Maximum width."))
